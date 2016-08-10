@@ -22,7 +22,25 @@ $('button').on('click', function() {
 
 // sudo 03: assign variable for response data to do for loop
 // which displays animated giphy by the length of objects in the response.
+        var results = response.data;
 
+        for (var i = 0; i < results.length; i++) {
+
+            var animalDiv = $('<div class="item">')
+
+            var p = $('<p>').text("Rating: " + results[i].rating);
+
+            var animalImage = $('<img>');
+
+            animalImage.attr('src', results[i].images.fixed_height.url);
+
+            animalDiv.append(p)
+
+            animalDiv.append(animalImage)
+
+            $('#animal-gifs').prepend(animalDiv);
+
+        }
 
      });
 });
